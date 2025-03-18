@@ -34,18 +34,18 @@ public class coche{
         System.out.println("El Porsche de color " + color + " acelera a " + velocidad + " km/h.");
     }
 
-    // aca para parar
+    // Para para parar
     public void parar() {
         velocidad = 0;
         System.out.println("El Audi de color " + color + " ha parado completamente.");
     }
 
-    // Método para girar a la izquierda
+    // Para girar a la izquierda
     public void girarIzquierda() {
         System.out.println("El BMW de color " + color + " gira a la izquierda. Cuidado con el carro al lado tuyo!");
     }
 
-    // Método para girar a la derecha
+    // Para girar a la derecha
     public void girarDerecha() {
         System.out.println("El VW de color " + color + " gira a la derecha. choque contra la vegatcionl!");
     }
