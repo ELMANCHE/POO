@@ -16,7 +16,7 @@ public class ejemplo2poo {
         // Acciones con las bicicletas
         miBicicleta.acelerar();
         tuBicicleta.frenar();
-        miBicicleta.cambiarPlato(310);
+        miBicicleta.cambiarPlato(7);
         tuBicicleta.cambiarPiñon(2);
         System.out.println("------------------------------");
 

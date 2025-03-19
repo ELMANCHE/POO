@@ -14,13 +14,13 @@ public class bicicleta {
             this.piñonActual = piñonActual;
         }
     
-        // Método para acelerar (dobla la velocidad actual)
+        // Metodo para acelerar (dobla la velocidad actual)
         public void acelerar() {
             velocidadActual *= 2;
             System.out.println("Acelerando! la nueva velocidad es " + velocidadActual + " km/h.");
         }
     
-        // Método para frenar (reduce la velocidad a la mitad)
+        // Metodo para frenar (reduce la velocidad a la mitad)
         public void frenar() {
             if (velocidadActual > 0) {
                 velocidadActual /= 2;
@@ -31,7 +31,7 @@ public class bicicleta {
         }
         
     
-        // Método para cambiar el plato
+        // Metodo para cambiar el plato
         public void cambiarPlato(int plato) {
             if (plato > 0) {
                 this.platoActual = plato;
@@ -41,7 +41,7 @@ public class bicicleta {
             }
         }
     
-        // Método para cambiar el piñón
+        // Metodo para cambiar el piñón
         public void cambiarPiñon(int piñon) {
             if (piñon > 0) {
                 this.piñonActual = piñon;
@@ -51,7 +51,7 @@ public class bicicleta {
             }
         }
     
-        // Método toString para visualizar el estado de la bicicleta
+        // Metodo toString para visualizar el estado de la bicicleta
         @Override
         public String toString() {
             return "@-/--/-@ Bicicleta{" +
