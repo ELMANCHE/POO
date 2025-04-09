@@ -1,119 +1,95 @@
 package clase_03;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Coche {
+    // Atributos
     private String color;
     private int velocidad;
     private float tamaño;
-    private int x;
-    private int y;
-    private Direccion direccion;
-    private static List<Coche> coches = new ArrayList<>();
 
-    private enum Direccion {
-        NORTE, SUR, ESTE, OESTE
+    //  PARTE DE CONSTRUCTORES
+
+    // Constructor por defecto
+    public Coche() {
+        this.color = "desconocido";
+        this.velocidad = 0;
+        this.tamaño = 0.0f;
     }
 
+    // Constructor con 1 parámetro (sobrecarga de constructor)
+    public Coche(String color) {
+        this.color = color;
+        this.velocidad = 0;
+        this.tamaño = 0.0f;
+    }
+
+    // Constructor con 2 parámetros (sobrecarga de constructor)
+    public Coche(String color, int velocidad) {
+        this.color = color;
+        this.velocidad = velocidad;
+        this.tamaño = 0.0f;
+    }
+
+    // Constructor con 3 parámetros (sobrecarga de constructor)
     public Coche(String color, int velocidad, float tamaño) {
         this.color = color;
         this.velocidad = velocidad;
         this.tamaño = tamaño;
-        this.x = 0;
-        this.y = 0;
-        this.direccion = Direccion.ESTE;
-        coches.add(this);
     }
 
-    // Método para girar a la izquierda (JAVA 8 compatible)
-    public void girarIzquierda() {
-        switch (direccion) {
-            case NORTE:
-                direccion = Direccion.OESTE;
-                break;
-            case SUR:
-                direccion = Direccion.ESTE;
-                break;
-            case ESTE:
-                direccion = Direccion.NORTE;
-                break;
-            case OESTE:
-                direccion = Direccion.SUR;
-                break;
-        }
-        System.out.println("Girando izquierda. Dirección: " + direccion);
+    //  PARTE DE SOBRECARGA DE MÉTODOS
+
+    // Método avanzar sin parámetros
+    public void avanzar() {
+        System.out.printf("El coche %s avanza a %d km/h.%n", color, velocidad);
     }
 
-    // Método para girar a la derecha (JAVA 8 compatible)
-    public void girarDerecha() {
-        switch (direccion) {
-            case NORTE:
-                direccion = Direccion.ESTE;
-                break;
-            case SUR:
-                direccion = Direccion.OESTE;
-                break;
-            case ESTE:
-                direccion = Direccion.SUR;
-                break;
-            case OESTE:
-                direccion = Direccion.NORTE;
-                break;
-        }
-        System.out.println("Girando derecha. Dirección: " + direccion);
-    }
-
-    // Método para avanzar (JAVA 8 compatible)
+    // Sobrecarga de avanzar: acepta distancia en metros
     public void avanzar(int metros) {
-        int nuevaX = x;
-        int nuevaY = y;
-
-        // Calcular nueva posición (JAVA 8 compatible)
-        switch (direccion) {
-            case NORTE:
-                nuevaY += metros;
-                break;
-            case SUR:
-                nuevaY -= metros;
-                break;
-            case ESTE:
-                nuevaX += metros;
-                break;
-            case OESTE:
-                nuevaX -= metros;
-                break;
-        }
-
-        // Verificar colisiones
-        for (Coche otro : coches) {
-            if (otro != this && nuevaX == otro.x && nuevaY == otro.y) {
-                System.out.println("⚠️ ¡Colisión detectada con " + otro.color + "!");
-                parar();
-                return;
-            }
-        }
-
-        // Actualizar posición
-        x = nuevaX;
-        y = nuevaY;
-        System.out.println("Avanzando a (" + x + "," + y + ")");
+        System.out.printf("El coche %s avanza %d metros a %d km/h.%n", color, metros, velocidad);
     }
 
-    // Sobrecargas
-    public void avanzar() { avanzar(1); }
-    public void avanzar(int metros, int velocidad) {
-        this.velocidad = velocidad;
-        avanzar(metros);
+    // Sobrecarga de avanzar: acepta distancia y nueva velocidad
+    public void avanzar(int metros, int nuevaVelocidad) {
+        System.out.printf("El coche %s avanza %d metros, cambiando la velocidad a %d km/h.%n",
+                color, metros, nuevaVelocidad);
+        this.velocidad = nuevaVelocidad;
     }
 
-    // Parar
     public void parar() {
-        velocidad = 0;
-        System.out.println("🛑 " + color + " se detuvo en (" + x + "," + y + ")");
+        System.out.printf("El coche %s se ha detenido.%n", color);
+        this.velocidad = 0;
+    }
+
+    public void girarIzquierda() {
+        System.out.printf("El coche %s gira a la izquierda.%n", color);
+    }
+
+    public void girarDerecha() {
+        System.out.printf("El coche %s gira a la derecha.%n", color);
+    }
+
+    // Getters y setters (opcionales)
+    public String getColor() {
+        return color;
+    }
+
+    public int getVelocidad() {
+        return velocidad;
+    }
+
+    public float getTamaño() {
+        return tamaño;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setVelocidad(int velocidad) {
+        this.velocidad = velocidad;
+    }
+
+    public void setTamaño(float tamaño) {
+        this.tamaño = tamaño;
     }
 }
-
-
-
-// hola como estas 
